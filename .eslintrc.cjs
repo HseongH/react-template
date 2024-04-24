@@ -36,6 +36,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.js'] }],
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
     '@tanstack/query/exhaustive-deps': 'error',
     '@tanstack/query/no-rest-destructuring': 'warn',
     '@tanstack/query/stable-query-client': 'error',
