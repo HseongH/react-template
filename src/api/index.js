@@ -16,13 +16,14 @@ instance.interceptors.response.use(
   (error) => Promise.reject(error),
 );
 
-export const getRequestAPI =
+/**
+ *
+ * @type {function(string): function(...string): function(...any): string}
+ */
+export const getRequestURL =
   (baseURL) =>
   (...path) =>
-  (config) => {
-    const url = `/${baseURL}`.concat(`/${path}`.repeat(path.length));
-
-    return instance({ ...config, url });
-  };
+  (...params) =>
+    `/${baseURL}`.concat(`/${path}`.repeat(path.length)).concat(`/${params}`.repeat(params.length));
 
 export default instance;
