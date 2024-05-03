@@ -30,22 +30,16 @@ function useTreeAPI(url) {
     });
 
   const useAddNode = useMutation({
-    mutationFn: (data) => {
-      queryClient.invalidateQueries([url]);
-      return instance.post(`${url}/addNode.do`, data);
-    },
+    mutationFn: (data) => instance.post(`${url}/addNode.do`, data),
+    onSuccess: () => queryClient.invalidateQueries([url]),
   });
   const useRemoveNode = useMutation({
-    mutationFn: (id) => {
-      queryClient.invalidateQueries([url]);
-      return instance.delete(`${url}/removeNode.do`, { params: { c_id: id } });
-    },
+    mutationFn: (id) => instance.delete(`${url}/removeNode.do`, { params: { c_id: id } }),
+    onSuccess: () => queryClient.invalidateQueries([url]),
   });
   const useUpdateNode = useMutation({
-    mutationFn: (data) => {
-      queryClient.invalidateQueries([url]);
-      return instance.put(`${url}/updateNode.do`, data);
-    },
+    mutationFn: (data) => instance.put(`${url}/updateNode.do`, data),
+    onSuccess: () => queryClient.invalidateQueries([url]),
   });
 
   return {

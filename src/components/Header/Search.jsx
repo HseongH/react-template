@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
@@ -44,13 +45,20 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 function Search() {
+  const [keyword, setKeyword] = useState('');
+
   return (
     <SearchInput>
       <SearchIconWrapper>
         <SearchIcon />
       </SearchIconWrapper>
 
-      <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
+      <StyledInputBase
+        placeholder="Search…"
+        inputProps={{ 'aria-label': 'search' }}
+        value={keyword}
+        onChange={(event) => setKeyword(event.target.value)}
+      />
     </SearchInput>
   );
 }

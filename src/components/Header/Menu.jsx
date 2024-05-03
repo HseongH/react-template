@@ -9,7 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 
-export default function Menu() {
+function Menu() {
   const [anchorElNav, setAnchorElNav] = useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -70,3 +70,5 @@ export default function Menu() {
     </>
   );
 }
+
+export default Menu;

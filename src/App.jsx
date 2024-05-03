@@ -2,7 +2,9 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RecoilRoot } from 'recoil';
 
 import CssBaseline from '@mui/material/CssBaseline';
-import Header from '@/components/Header';
+import { Box } from '@mui/material';
+import Header from './components/Header';
+import Drawer from './components/Header/Drawer';
 
 const queryClient = new QueryClient();
 
@@ -11,6 +13,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <RecoilRoot>
         <CssBaseline enableColorScheme />
+
         <Header />
       </RecoilRoot>
     </QueryClientProvider>

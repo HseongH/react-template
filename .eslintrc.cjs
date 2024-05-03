@@ -34,6 +34,7 @@ module.exports = {
   rules: {
     'react/jsx-no-target-blank': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.js'] }],
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'prettier/prettier': ['error', { endOfLine: 'auto' }],

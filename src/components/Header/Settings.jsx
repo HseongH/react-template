@@ -27,6 +27,7 @@ function Settings() {
           <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
         </IconButton>
       </Tooltip>
+
       <MUIMenu
         sx={{ mt: '45px' }}
         id="menu-appbar"
