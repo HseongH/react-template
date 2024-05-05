@@ -1,9 +1,10 @@
 import AdbIcon from '@mui/icons-material/Adb';
+import { Stack } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 function Logo() {
   return (
-    <>
+    <Stack direction="row" alignItems="center">
       <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
       <Typography
         variant="h6"
@@ -42,7 +43,7 @@ function Logo() {
       >
         LOGO
       </Typography>
-    </>
+    </Stack>
   );
 }
 

@@ -1,11 +1,9 @@
 import { useState, useCallback } from 'react';
 
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Container from '@mui/material/Container';
+import Stack from '@mui/material/Stack';
 
+import AppBar from './AppBar';
 import Logo from './Logo';
-import Menu from './Menu';
 import Search from './Search';
 import Settings from './Settings';
 import Theme from './Theme';
@@ -35,17 +33,18 @@ function Header() {
 
   return (
     <>
-      <AppBar position="static">
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            <DrawerButton open={open} getDrawerOpenProps={getDrawerOpenProps} />
-            <Logo />
-            <Menu />
+      <AppBar open={open}>
+        <DrawerButton open={open} getDrawerOpenProps={getDrawerOpenProps} />
+
+        <Stack width="100%" direction="row" justifyContent="space-between">
+          <Logo />
+
+          <Stack direction="row">
             <Search />
             <Theme />
             <Settings />
-          </Toolbar>
-        </Container>
+          </Stack>
+        </Stack>
       </AppBar>
 
       <Drawer open={open} getDrawerCloseProps={getDrawerCloseProps} />
