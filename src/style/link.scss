@@ -1,0 +1,71 @@
+a {
+  color: #a4c6ff;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: #5797ff;
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+
+  /***************************/
+  /*         Color           */
+  /***************************/
+  &.text-primary:hover,
+  &.text-primary:focus {
+    color: #005bf0;
+  }
+
+  &.text-success:hover,
+  &.text-success:focus {
+    color: #e6e6e6;
+  }
+
+  &.text-info:hover,
+  &.text-info:focus {
+    color: #e6e6e6;
+  }
+
+  &.text-warning:hover,
+  &.text-warning:focus {
+    color: #e6e6e6;
+  }
+
+  &.text-danger:hover,
+  &.text-danger:focus {
+    color: #e6e6e6;
+  }
+
+  /***************************/
+  /*         Background      */
+  /***************************/
+  &.bg-primary:hover,
+  &.bg-primary:focus {
+    background-color: #005bf0;
+  }
+
+  &.bg-success:hover,
+  &.bg-success:focus {
+    background-color: rgba(188, 219, 161, 0.28);
+  }
+
+  &.bg-info:hover,
+  &.bg-info:focus {
+    background-color: rgba(49, 150, 180, 0.29);
+  }
+
+  &.bg-warning:hover,
+  &.bg-warning:focus {
+    background-color: rgba(222, 173, 42, 0.28);
+  }
+
+  &.bg-danger:hover,
+  &.bg-danger:focus {
+    background-color: rgba(239, 58, 25, 0.29);
+  }
+}

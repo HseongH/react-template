@@ -1,0 +1,261 @@
+table {
+  background-color: transparent;
+
+  col[class*='col-'] {
+    position: static;
+    float: none;
+    display: table-column;
+  }
+
+  td[class*='col-'],
+  th[class*='col-'] {
+    position: static;
+    float: none;
+    display: table-cell;
+  }
+}
+
+caption {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #d2d2d2;
+  text-align: left;
+}
+
+th {
+  text-align: left;
+}
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 18px;
+
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      &.active {
+        td,
+        th {
+          background-color: rgba(38, 38, 38, 0.3);
+        }
+      }
+
+      > td,
+      > th {
+        padding: 8px;
+        line-height: 1.428571429;
+        vertical-align: top;
+        border-top: 1px solid rgba(51, 51, 51, 0.35);
+
+        &.active {
+          background-color: rgba(38, 38, 38, 0.3);
+        }
+
+        &.success {
+          background-color: rgba(214, 233, 198, 0.28);
+        }
+
+        &.info {
+          background-color: rgba(74, 176, 206, 0.29);
+        }
+
+        &.warning {
+          background-color: rgba(229, 190, 86, 0.28);
+        }
+
+        &.danger {
+          background-color: rgba(242, 99, 73, 0.29);
+        }
+      }
+    }
+  }
+
+  > caption + thead,
+  > colgroup + thead {
+    > tr:first-child {
+      > th,
+      > td {
+        border-top: 0;
+      }
+    }
+  }
+
+  > thead {
+    > tr {
+      > th {
+        vertical-align: bottom;
+        border-bottom: 2px solid rgba(51, 51, 51, 0.35);
+      }
+    }
+
+    &:first-child {
+      > tr:first-child {
+        > th,
+        > td {
+          border-top: 0;
+        }
+      }
+    }
+  }
+
+  > tbody + tbody {
+    border-top: 2px solid rgba(51, 51, 51, 0.35);
+  }
+
+  .table {
+    background-color: #fff;
+  }
+}
+
+.table-condensed {
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: 5px;
+      }
+    }
+  }
+}
+
+.table-bordered {
+  border: 1px solid rgba(51, 51, 51, 0.35);
+
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 1px solid rgba(51, 51, 51, 0.35);
+      }
+    }
+  }
+
+  > thead {
+    > tr {
+      > th,
+      > td {
+        border-bottom-width: 2px;
+      }
+    }
+  }
+}
+
+.table-striped {
+  > tbody > tr:nth-of-type(odd) {
+    background-color: rgba(51, 51, 51, 0.3);
+  }
+}
+
+.table-hover {
+  > tbody {
+    > tr:hover {
+      background-color: rgba(38, 38, 38, 0.3);
+    }
+
+    > tr > td.active:hover,
+    > tr > th.active:hover,
+    > tr.active:hover > td,
+    > tr:hover > .active,
+    > tr.active:hover > th {
+      background-color: rgba(26, 26, 26, 0.3);
+    }
+
+    > tr > td.success:hover,
+    > tr > th.success:hover,
+    > tr.success:hover > td,
+    > tr:hover > .success,
+    > tr.success:hover > th {
+      background-color: rgba(201, 226, 180, 0.28);
+    }
+
+    > tr > td.info:hover,
+    > tr > th.info:hover,
+    > tr.info:hover > td,
+    > tr:hover > .info,
+    > tr.info:hover > th {
+      background-color: rgba(54, 167, 200, 0.29);
+    }
+
+    > tr > td.warning:hover,
+    > tr > th.warning:hover,
+    > tr.warning:hover > td,
+    > tr:hover > .warning,
+    > tr.warning:hover > th {
+      background-color: rgba(226, 182, 64, 0.28);
+    }
+
+    > tr > td.danger:hover,
+    > tr > th.danger:hover,
+    > tr.danger:hover > td,
+    > tr:hover > .danger,
+    > tr.danger:hover > th {
+      background-color: rgba(240, 79, 49, 0.29);
+    }
+  }
+}
+
+.table-responsive {
+  overflow-x: auto;
+  min-height: 0.01%;
+}
+
+@media screen and (max-width: 767px) {
+  .table-responsive {
+    width: 100%;
+    margin-bottom: 13.5px;
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid rgba(51, 51, 51, 0.35);
+
+    > .table {
+      margin-bottom: 0;
+
+      > thead,
+      tbody,
+      tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+
+    > .table-bordered {
+      border: 0;
+
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th:first-child,
+          > td:first-child {
+            border-left: 0;
+          }
+
+          > th:last-child,
+          > td:last-child {
+            border-right: 0;
+          }
+        }
+      }
+
+      tbody,
+      tfoot {
+        > tr:last-child {
+          > th,
+          > td {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}

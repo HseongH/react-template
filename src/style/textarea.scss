@@ -1,0 +1,10 @@
+textarea {
+  &.form-control {
+    height: auto;
+  }
+
+  &.input-sm,
+  &.input-lg {
+    height: auto;
+  }
+}

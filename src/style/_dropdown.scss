@@ -1,0 +1,131 @@
+.dropup,
+.dropdown {
+  position: relative;
+}
+
+.dropup {
+  .caret {
+    border-top: 0;
+    border-bottom: 4px dashed;
+    border-bottom: 4px solid \9;
+    content: '';
+  }
+
+  .dropdown-menu {
+    top: auto;
+    bottom: 100%;
+    margin-bottom: 2px;
+  }
+
+  .btn-lg .caret,
+  .btn-group-lg > .btn .caret {
+    border-width: 0 5px 5px;
+  }
+}
+
+.dropdown-toggle:focus {
+  outline: 0;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 13px;
+  text-align: left;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+
+  &.pull-right {
+    right: 0;
+    left: auto;
+  }
+
+  & .divider {
+    height: 1px;
+    margin: 8px 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+  }
+
+  & > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.428571429;
+    color: #666;
+    white-space: nowrap;
+  }
+
+  & > li > a:hover,
+  & > li > a:focus {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #2477ff;
+  }
+
+  & > .active > a,
+  & > .active > a:hover,
+  & > .active > a:focus {
+    color: #fff;
+    text-decoration: none;
+    outline: 0;
+    background-color: #2477ff;
+  }
+
+  & > .disabled > a,
+  & > .disabled > a:hover,
+  & > .disabled > a:focus {
+    color: #999999;
+  }
+
+  & > .disabled > a:hover,
+  & > .disabled > a:focus {
+    text-decoration: none;
+    background-color: transparent;
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    cursor: not-allowed;
+  }
+}
+
+.dropdown-menu-right {
+  left: auto;
+  right: 0;
+}
+
+.dropdown-menu-left {
+  left: 0;
+  right: auto;
+}
+
+.dropdown-header {
+  display: block;
+  padding: 3px 20px;
+  font-size: 12px;
+  line-height: 1.428571429;
+  color: #999999;
+  white-space: nowrap;
+}
+
+.dropdown-backdrop {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 990;
+}
