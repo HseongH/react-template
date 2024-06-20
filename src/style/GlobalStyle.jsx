@@ -1,9 +1,8 @@
 import { ThemeProvider } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-// init
 import 'normalize.css';
-import './style.scss';
+import './application.scss';
 
 function GlobalStyle({ children }) {
   return <ThemeProvider>{children}</ThemeProvider>;
