@@ -3,7 +3,7 @@ import { Row, Col, Button } from 'reactstrap';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import uuid from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import Widget from '@/components/Widget';
 import s from './Notifications.module.scss';
 
@@ -40,7 +40,7 @@ class Notifications extends React.Component {
   };
 
   addInfoNotification = () => {
-    let id = uuid();
+    let id = uuidv4();
     toast(
       <div>
         Launching thermonuclear war...
@@ -64,7 +64,7 @@ class Notifications extends React.Component {
     });
 
   addErrorNotification = () => {
-    let id = uuid();
+    let id = uuidv4();
     toast.error(
       <div>
         Error destroying alien planet <br />

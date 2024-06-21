@@ -19,77 +19,54 @@ import BreadcrumbHistory from '../BreadcrumbHistory';
 import { openSidebar, closeSidebar } from '@/actions/navigation';
 import s from './Layout.module.scss';
 
-class Layout extends React.Component {
-  static propTypes = {
-    sidebarStatic: PropTypes.bool,
-    sidebarOpened: PropTypes.bool,
-    dispatch: PropTypes.func.isRequired,
-  };
-
-  static defaultProps = {
-    sidebarStatic: false,
-    sidebarOpened: false,
-  };
-  constructor(props) {
-    super(props);
-
-    this.handleSwipe = this.handleSwipe.bind(this);
-  }
-
-  handleSwipe(e) {
+function Layout({ sidebarStatic, sidebarOpened, sidebarVisibility }) {
+  const [chatOpen, setChatOpen] = React.useState(false);
+  const handleSwipe = (e) => {
     if ('ontouchstart' in window) {
-      if (e.direction === 4 && !this.state.chatOpen) {
-        this.props.dispatch(openSidebar());
+      if (e.direction === 4 && !chatOpen) {
+        dispatch(openSidebar());
         return;
       }
 
-      if (e.direction === 2 && this.props.sidebarOpened) {
-        this.props.dispatch(closeSidebar());
+      if (e.direction === 2 && sidebarOpened) {
+        dispatch(closeSidebar());
         return;
       }
 
-      this.setState({ chatOpen: e.direction === 2 });
+      setChatOpen(e.direction === 2);
     }
-  }
+  };
 
-  render() {
-    return (
-      <div
-        className={[s.root, 'sidebar-' + this.props.sidebarPosition, 'sidebar-' + this.props.sidebarVisibility].join(
-          ' ',
-        )}
-      >
-        <div className={s.wrap}>
-          <Header />
-          {/* <Chat chatOpen={this.state.chatOpen} /> */}
-          {/* <Helper /> */}
-          <Sidebar />
-          <Hammer onSwipe={this.handleSwipe}>
-            <main className={s.content}>
-              <BreadcrumbHistory url={this.props.location.pathname} />
-              <TransitionGroup>
-                <CSSTransition key={this.props.location.key} classNames="fade" timeout={200}>
-                  <Switch>
-                    <Route path="/app/main" exact render={() => <Redirect to="/app/main/dashboard" />} />
-                    <Route path="/app/main/dashboard" exact component={Dashboard} />
-                    <Route path="/app/components/icons" exact component={UIIcons} />
-                    <Route path="/app/notifications" exact component={UINotifications} />
-                    <Route path="/app/components/charts" exact component={Charts} />
-                    <Route path="/app/tables" exact component={TablesStatic} />
-                    <Route path="/app/components/maps" exact component={MapsGoogle} />
-                    <Route path="/app/typography" exact component={CoreTypography} />
-                  </Switch>
-                </CSSTransition>
-              </TransitionGroup>
-              <footer className={s.contentFooter}>
-                Light Blue React Template - React admin template made by <a href="https://flatlogic.com">Flatlogic</a>
-              </footer>
-            </main>
-          </Hammer>
-        </div>
+  return (
+    <div className={[s.root, 'sidebar-' + sidebarPosition, 'sidebar-' + sidebarVisibility].join(' ')}>
+      <div className={s.wrap}>
+        <Header />
+        <Sidebar />
+        <Hammer onSwipe={handleSwipe}>
+          <main className={s.content}>
+            <BreadcrumbHistory url={location.pathname} />
+            <TransitionGroup>
+              <CSSTransition key={location.key} classNames="fade" timeout={200}>
+                <Switch>
+                  <Route path="/app/main" exact render={() => <Redirect to="/app/main/dashboard" />} />
+                  <Route path="/app/main/dashboard" exact component={Dashboard} />
+                  <Route path="/app/components/icons" exact component={UIIcons} />
+                  <Route path="/app/notifications" exact component={UINotifications} />
+                  <Route path="/app/components/charts" exact component={Charts} />
+                  <Route path="/app/tables" exact component={TablesStatic} />
+                  <Route path="/app/components/maps" exact component={MapsGoogle} />
+                  <Route path="/app/typography" exact component={CoreTypography} />
+                </Switch>
+              </CSSTransition>
+            </TransitionGroup>
+            <footer className={s.contentFooter}>
+              Light Blue React Template - React admin template made by <a href="https://flatlogic.com">Flatlogic</a>
+            </footer>
+          </main>
+        </Hammer>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 function mapStateToProps(store) {
@@ -99,5 +76,15 @@ function mapStateToProps(store) {
     sidebarVisibility: store.navigation.sidebarVisibility,
   };
 }
+
+Layout.propTypes = {
+  sidebarStatic: PropTypes.bool,
+  sidebarOpened: PropTypes.bool,
+};
+
+Layout.defaultProps = {
+  sidebarStatic: false,
+  sidebarOpened: false,
+};
 
 export default withRouter(connect(mapStateToProps)(Layout));

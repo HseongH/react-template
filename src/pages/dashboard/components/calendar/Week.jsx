@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Day from './Day';
-import uuid from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import s from './Calendar.module.scss';
 
 class Week extends Component {
@@ -40,7 +40,7 @@ class Week extends Component {
         link: link,
       };
 
-      days.push(<Day key={uuid()} day={day} selected={selected} />);
+      days.push(<Day key={uuidv4()} day={day} selected={selected} />);
       date = date.clone();
       date.add(1, 'd');
     }

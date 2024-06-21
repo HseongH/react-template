@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DayNames from './DayNames';
-import uuid from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import Week from './Week';
 import moment from 'moment/moment';
 import s from './Calendar.module.scss';
@@ -72,7 +72,7 @@ class Calendar extends Component {
     while (!done) {
       weeks.push(
         <Week
-          key={uuid()}
+          key={uuidv4()}
           selectedMonthEvents={this.state.selectedMonthEvents}
           previousCurrentNextView={previousCurrentNextView.clone()}
           currentMonthView={currentMonthView}
