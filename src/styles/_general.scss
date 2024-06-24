@@ -6,10 +6,24 @@ html {
 body {
   overflow-x: hidden;
   color: $text-color;
-  background: $main-gradient;
+  background: $main-gradient, $main-background-image;
   background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
+}
+
+/* 스크롤 테마 */
+body::-webkit-scrollbar {
+  width: 8px; /* 스크롤바의 너비 */
+  height: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: #343434; /* 스크롤바의 색상 */
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: $main-gradient, $main-background-image;
 }
 
 html,
@@ -23,7 +37,10 @@ a,
 .dropdown-item,
 .btn {
   cursor: pointer;
-  transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out, border-color 0.1s ease-in-out;
+  transition:
+    color 0.1s ease-in-out,
+    background-color 0.1s ease-in-out,
+    border-color 0.1s ease-in-out;
   font-family: $font-family-base;
 }
 
@@ -58,4 +75,3 @@ ol {
   list-style: none;
   padding-left: 0;
 }
-
